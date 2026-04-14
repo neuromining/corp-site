@@ -292,6 +292,107 @@
     .footer-links { gap: 12px; }
   }
 </style>
+<style>
+  /* ===== CENTER ALL SECTION HEADERS ===== */
+  .section-label,
+  .health-section-label {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .section-label::before,
+  .health-section-label::before {
+    display: none;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .section-sub {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* ===== SERVICES CENTER ===== */
+  .services-grid {
+    text-align: center;
+  }
+  
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* ===== PROCESS CENTER ===== */
+  .process-step {
+    text-align: center;
+  }
+  
+  /* ===== HEALTHCARE CENTER ===== */
+  .health-intro {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .health-intro p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .health-pulse {
+    justify-content: center;
+  }
+  
+  .health-capabilities {
+    justify-content: center;
+  }
+  
+  .compliance-row {
+    justify-content: center;
+  }
+
+  .healthcare-layout {
+  grid-template-columns: 1fr;
+  text-align: center;
+  }
+
+  .health-cards {
+    align-items: center;
+  }
+
+  /* ===== HERO CENTER ALIGN ===== */
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+.hero-tag {
+  justify-content: center;
+}
+
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+  </style>
 </head>
 <body>
 
@@ -304,6 +405,7 @@
 
 <!-- Mobile menu drawer -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" class="m-link">Home</a>  
   <a href="#services" class="m-link">Services</a>
   <a href="#process" class="m-link">Process</a>
   <a href="#healthcare" class="m-link">Healthcare</a>
@@ -319,6 +421,7 @@
         Neuro<span>Mining</span>
       </a>
       <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>        
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#healthcare">Healthcare</a></li>
