@@ -202,6 +202,32 @@
   .cta-email a { color: var(--accent); text-decoration: none; }
   .cta-email a:hover { text-decoration: underline; }
 
+
+  .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
   /* ════════════════════════════
      FOOTER
   ════════════════════════════ */
@@ -633,18 +659,62 @@
   </div>
 </section>
 
+<section id="thank-you" style="display:none;">
+  <div class="container">
+    <div class="cta-box" style="text-align:center;">
+      
+      <h2>Message Sent 🚀</h2>
+      
+      <p style="margin-top:12px;">
+        Thanks for reaching out — we’ll get back to you shortly.
+      </p>
+
+      <a href="#home" class="btn-primary" style="margin-top:20px; display:inline-block;">
+        Back to Home
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="contact">
   <div class="container">
     <div class="cta-box" data-reveal>
-      <div class="section-label" style="justify-content:center;margin-bottom:14px;">Get In Touch</div>
-      <h2>Ready to modernize<br>your infrastructure?</h2>
-      <p>Whether you're migrating to the cloud, scaling a healthcare platform, or need strategic IT and data leadership — let's map out your next move together.</p>
-      <div class="cta-actions">
-        <a href="mailto:hello@neuromining.net" class="btn-primary">Schedule a Consultation</a>
-        <a href="mailto:hello@neuromining.net" class="btn-ghost">hello@neuromining.net</a>
+
+      <div class="section-label" style="justify-content:center;margin-bottom:14px;">
+        Get In Touch
       </div>
-      <span class="cta-email">USA · Remote-First · <a href="mailto:hello@neuromining.net">hello@neuromining.net</a></span>
+
+      <h2>Ready to modernize<br>your infrastructure?</h2>
+
+      <p>
+        Whether you're migrating to the cloud, scaling a healthcare platform,
+        or need strategic IT and data leadership — let's map out your next move together.
+      </p>
+
+      <!-- FORM (Primary action) -->
+      <form id="contact-form" action="https://formspree.io/f/mlgavgpg" method="POST" class="contact-form">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+
+        <button type="submit" class="btn-primary">Send Message</button>
+
+      </form>
+      <div id="form-success" style="display:none; margin-top:20px; text-align:center;">
+        <p style="color:var(--accent); font-size:0.9rem;">
+          ✅ Message sent. We’ll get back to you shortly.
+        </p>
+      </div>
+      <!-- Secondary option -->
+      <span class="cta-email">
+        Prefer email? <a href="mailto:hello@neuromining.net">hello@neuromining.net</a>
+      </span>
+
     </div>
   </div>
 </section>
@@ -733,3 +803,30 @@
 </script>
 </body>
 </html>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const success = document.getElementById("form-success");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset();
+      form.style.display = "none";
+      success.style.display = "block";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
